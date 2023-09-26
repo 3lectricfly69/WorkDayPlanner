@@ -23,13 +23,19 @@
     <link rel="stylesheet" href="style.css" />
     <title>Work Day Scheduler</title>
   </head>
-
   <body>
     <header class="p-5 mb-4">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p text a
-      id="currentDay" class="lead"></p>
+      id="currentDay" class="lead"
+      var timeDisplay = document.getElementById("time"); function refreshTime() {
+      var dateString = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
+      var formattedString = dateString.replace(", ", " - ");
+      timeDisplay.innerHTML = formattedString;
+      } setInterval(refreshTime, 1000);
+      <p id="time"></p>
+      ></p>
     </header>
     <div class="container-fluid px-5">
       <!-- Use class for "past", "present", and "future" to apply styles to the

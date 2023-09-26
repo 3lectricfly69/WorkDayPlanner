@@ -1,17 +1,23 @@
-var TenAM = $("#Ten");
-var ElevenAM = $("Eleven");
-var TwelveAM = $("#Twelve");
-var OnePM = $("#One");
-var TwoPM = $("#Two");
-var ThreePM = $("#Three");
-var FourPM = $("#Four");
-var FivePM = $("#Five");
-
-
 console.log(moment().hours());
 console.log(moment().date());
 
-$("#date").text("Today's date is: " + ((moment().month()) + 1 )+ "/" + (moment().date()) + "/" + (moment().year()));
+$("#currentDay").text("Today's date is: " + ((moment().month()) + 1 )+ "/" + (moment().date()) + "/" + (moment().year()));
+$(#currentTime)
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
 
 $(".saveBtn").on("click", function(){
   console.log($(this));
